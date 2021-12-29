@@ -11,6 +11,7 @@ const PORT = config.get('port') || 5000 //npm config
 app.use(express.json({extended: true})) // мидлвэр для парсинга реквеста в json
 
 app.use('/api/auth',require('./routes/auth.routes')) // router
+app.use('/api/link',require("./routes/links.routes"))
 
 async function connectToMongoDB() {
     try{
