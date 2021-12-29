@@ -16,12 +16,12 @@ export const AuthPage = () => {
     const message = useMessage()
     const auth = useContext(AuthContext)
     const [form, setForm] = useState({email: "", password: ""})
+    const {loading,request,error,clearError} = useHttp()
 
     const changeHandler = event =>{
         setForm({...form,[event.target.id]:event.target.value}) //https://www.w3schools.com/react/react_usestate.asp
                                                                   //Берем id элемента который email или password и меняем
     }
-    const {loading,request,error,clearError} = useHttp()
 
     const registerHandler = async () => {
         try {
@@ -60,10 +60,10 @@ export const AuthPage = () => {
                         <div class="card-content white-text">
                             <span class="card-title">Authentification</span>
                             <div className="input-field">
-                                <input placeholder="Enter email" id="email" type="text" className = "white-input" onChange={changeHandler}/>
+                                <input placeholder="Enter email" id="email" type="text" className = "white-input" onChange={changeHandler} value={form.email}/>
                             </div>
                             <div className="input-field">
-                                <input placeholder="Enter password" id="password" type="password"  className = "white-input" onChange={changeHandler}/>
+                                <input placeholder="Enter password" id="password" type="password"  className = "white-input" onChange={changeHandler} value={form.password}/>
 
                             </div>
                         </div>

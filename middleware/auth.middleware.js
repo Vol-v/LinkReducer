@@ -5,7 +5,7 @@ module.exports = (req,res,next) => {
         return next()
     }
     try {
-        const token = req.headers.authorization // специалньое поле хэдэра
+        let token = req.headers.authorization // специалньое поле хэдэра
                                                 // строка вида "Bearer TOKEN"
         token = token.split(" ")[1]
         if (!token) {
