@@ -1,2 +1,2 @@
 # LinkReducer
-Full-stack MERN pet project
+Full-stack MERN pet project. Work still in progress
