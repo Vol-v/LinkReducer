@@ -3,6 +3,9 @@ import { useState,useCallback,useEffect} from 'react';
 
 export const useAuth = () => {
     const [token, setToken] = useState(null)
+    const [ready, setReady] = useState(false) //флаг ready для отработки useEffect-a авторизации.
+                                              //Просто если обновить страницу detail то useeffect может не успеть спарсить данные из
+                                              //localStorage и тогда он не считает токен и произойдет редирект не туда
     const [userId, setUserId] = useState(null)
     const storageName = 'userData'
 
@@ -22,7 +25,8 @@ export const useAuth = () => {
         if (data && data.token){
             login(data.token,data.userId)
         }
+        setReady(true)
     }, [login])
 
-    return {login,logout,token,userId}
+    return {login,logout,token,userId,ready}
 }

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import {Routes,Route} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 import { useHttp } from '../hooks/http.hook';
 import { AuthContext } from '../context/AuthContext';
 
@@ -7,6 +7,7 @@ export const CreatePage = () => {
     const auth = useContext(AuthContext)
     const [link, setLink] = useState("")
     const {request} = useHttp()
+    const navigate = useNavigate()
 
     useEffect(() => {
         window.M.updateTextFields()
@@ -16,9 +17,9 @@ export const CreatePage = () => {
         if (event.key === "Enter"){
             try {
                 const data = await request('/api/link/generate',"POST",{from:link},{
-                    Authorization: 'Bearer '+auth.token
+                    authorization: 'Bearer '+auth.token
                 })
-                    //нужно добавить рераут
+                navigate('/detail/'+data.link._id)
             }catch(e){
 
             }
