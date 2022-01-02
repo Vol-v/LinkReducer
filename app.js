@@ -12,7 +12,7 @@ app.use(express.json({extended: true})) // мидлвэр для парсинг�
 
 app.use('/api/auth',require('./routes/auth.routes')) // router
 app.use('/api/link',require("./routes/links.routes"))
-
+app.use('/t',require('./routes/redirect.routes'))
 async function connectToMongoDB() {
     try{
        await monogoose.connect(config.get('mongoUri'),{})

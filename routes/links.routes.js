@@ -22,7 +22,7 @@ router.post('/generate',auth,async (req,res) =>{
         await link.save()
         res.status(201).json({link}) //201 - created
     }catch(e){console.log(e)
-         res.status(500).json({message:"Что то пошло не так, попробуйте снова"})}
+         res.status(500).json({message:"Something went wrong"})}
 
 })
 
@@ -31,7 +31,7 @@ router.get('/',auth,async (req,res) =>{
         const links = await Link.find({owner:req.user.userId})//берется из middleware
         res.json(links)
     }catch(e){console.log(e)
-         res.status(500).json({message:"Что то пошло не так, попробуйте снова"})}
+         res.status(500).json({message:"Something went wrong"})}
 
 })
 
@@ -40,7 +40,7 @@ router.get('/:id',auth,async (req,res) => {
         const link = await Link.findById(req.params.id)
         res.json(link)
     }catch(e){console.log(e)
-         res.status(500).json({message:"Что то пошло не так, попробуйте снова"})}
+         res.status(500).json({message:"Something went wrong"})}
 })
 
 module.exports = router
