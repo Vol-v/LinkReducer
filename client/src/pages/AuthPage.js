@@ -53,7 +53,7 @@ export const AuthPage = () => {
     return (
         <div class="row">
             <div class="col s6 offset-s3">
-                <h1>Vol-v link reducer</h1>
+                <h1>Link reducer</h1>
 
                 <div class="col s12 m6">
                     <div class="card cyan darken-4">

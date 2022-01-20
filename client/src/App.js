@@ -22,6 +22,11 @@ function App() {
     <div className="container">
       {routes}
     </div>
+    <div>
+    <blockquote style = {{color: "rgba(0, 0, 0, 0.24)"}}>
+      Source: https://github.com/Vol-v/LinkReducer
+    </blockquote>
+          </div>
     </Router>
     </AuthContext.Provider>
   );

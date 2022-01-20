@@ -23,9 +23,9 @@ export const LinksPage = () =>{
     useEffect(() => {
         fetchedLinks()
 
-    }, [fetchedLinks])
+    }, [fetchedLinks]) //один раз за
 
-    if (loading){
+    if (loading){ 
         return <Loader />
 
     }
